@@ -23,10 +23,8 @@ const app = express();
 
 // ====== Security Middleware ======
 app.use(helmet()); // Set security HTTP headers
-app.use(cors({
-  origin: config.corsOrigin,
-  credentials: true,
-}));
+app.use(cors());
+
 
 // ====== Body Parser Middleware ======
 app.use(express.json({ limit: '10kb' }));
