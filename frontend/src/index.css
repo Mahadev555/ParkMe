@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities */
+.glass {
+  @apply bg-white/10 backdrop-blur-glass border border-white/20 rounded-2xl shadow-glass;
+}
+
+.glass-dark {
+  @apply bg-slate-900/10 backdrop-blur-glass border border-slate-800/20 rounded-2xl shadow-glass;
+}
+
+.btn-primary {
+  @apply px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200 hover:translate-y-[-2px] disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply px-6 py-2.5 bg-slate-200 text-slate-900 rounded-lg font-medium shadow-soft hover:shadow-md transition-all duration-200 hover:translate-y-[-2px] disabled:opacity-50;
+}
+
+.input-primary {
+  @apply w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-soft hover:shadow-md transition-all duration-300 overflow-hidden;
+}
+
+.card-hover {
+  @apply cursor-pointer hover:shadow-lg hover:translate-y-[-4px] transition-all duration-300;
+}
+
+.card-premium {
+  @apply bg-white/40 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg hover:shadow-xl hover:border-white/80 transition-all duration-300 overflow-hidden;
+}
+
+/* Premium Gradient Backgrounds */
+.gradient-hero {
+  @apply bg-gradient-to-br from-slate-50 via-white to-primary-50;
+}
+
+.gradient-primary {
+  @apply bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 1000px 100%;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 hover:translate-y-[-4px];
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Premium Shadows */
+.shadow-soft {
+  @apply shadow-sm;
+}
+
+.shadow-glass {
+  @apply shadow-xl shadow-primary-500/10;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATIONS
+   ============================================ */
+
+/* Mobile First - Extra Small Devices (< 640px) */
+@media (max-width: 639px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  /* Chatbot safe area for mobile notches */
+  @supports (padding: max(0px)) {
+    .fixed {
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+  }
+
+  /* Touch-friendly button sizes for mobile */
+  button {
+    min-height: 44px;
+  }
+
+  /* Optimize text input for mobile keyboards */
+  input[type="text"],
+  textarea {
+    font-size: 16px;
+    min-height: 44px;
+  }
+}
+
+/* Tablets (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-height: 600px) {
+  /* Reduce heights for landscape mode */
+  .fixed {
+    max-height: 80vh;
+  }
+
+  .h-\[50vh\],
+  .h-\[60vh\],
+  .h-\[65vh\] {
+    height: 400px !important;
+  }
+
+  /* Reduce padding in landscape */
+  .px-3.sm\:px-4,
+  .px-4.sm\:px-6 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (min-device-width: 320px) and (max-device-width: 680px) {
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px !important;
+  }
+}
+
+/* Optimize scrollbar for mobile */
+@media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+}
+
+/* Ensure smooth animations on lower-end mobile devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode optimizations for OLED screens */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  button,
+  input,
+  textarea {
+    border-width: 2px;
+  }
+
+  .text-gray-500 {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+}

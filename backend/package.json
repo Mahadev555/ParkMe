@@ -1,0 +1,42 @@
+{
+  "name": "parkme-backend",
+  "version": "1.0.0",
+  "description": "Production-ready backend for ParkMe parking marketplace",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --detectOpenHandles"
+  },
+  "keywords": [
+    "parking",
+    "marketplace",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "ParkMe Team",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.46.0",
+    "axios": "^1.14.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "mime": "^4.1.0",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
