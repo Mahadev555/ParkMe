@@ -23,8 +23,10 @@ const app = express();
 
 // ====== Security Middleware ======
 app.use(helmet()); // Set security HTTP headers
-app.use(cors());
-
+pp.use(cors({
+  origin: process.env.CORS_ORIGIN || 'https://parkmeai.netlify.app',
+  credentials: true,
+}));
 
 // ====== Body Parser Middleware ======
 app.use(express.json({ limit: '10kb' }));
